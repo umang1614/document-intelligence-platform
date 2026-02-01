@@ -1,2 +1,16 @@
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\user\dto\UserResponse.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\user\repository\UserRepository.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\user\entity\User.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\config\SecurityConfig.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\config\security\JwtTokenProvider.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\auth\dto\LoginRequest.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\common\enums\Designation.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\auth\controller\AuthController.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\user\controller\UserController.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\auth\dto\LoginResponse.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\health\HealthController.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\test\TestController.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\config\DataInitializer.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\common\enums\Role.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\DocPlatformApplication.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\user\dto\CreateUserRequest.java
