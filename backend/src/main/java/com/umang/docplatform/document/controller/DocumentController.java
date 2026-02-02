@@ -1,5 +1,7 @@
 package com.umang.docplatform.document.controller;
 
+import com.umang.docplatform.common.enums.AuditAction;
+import com.umang.docplatform.audit.service.AuditSevice;
 import com.umang.docplatform.common.enums.Designation;
 import com.umang.docplatform.common.enums.VisibilityType;
 import com.umang.docplatform.config.security.JwtTokenProvider;
@@ -24,6 +26,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -37,6 +43,7 @@ public class DocumentController {
     private final DocumentVersionRepository documentVersionRepository;
     private final UserRepository userRepository;
     private final FileStorageService fileStorageService;
+    private final AuditSevice auditService;
     
     @PostMapping(consumes = "multipart/form-data")
     @PreAuthorize("hasAnyRole('ADMIN', 'EDITOR')")
@@ -92,11 +99,48 @@ public class DocumentController {
         
         DocumentVersion savedVersion = documentVersionRepository.save(documentVersion);
         
+        // Log audit event
+        auditService.log(owner, AuditAction.DOCUMENT_CREATED, savedDocument);
+        
         // Return document id and version number
         CreateDocumentResponse response = new CreateDocumentResponse(
                 savedDocument.getId(),
                 "Document created successfully with version " + savedVersion.getVersionNumber()
         );
+        
+        return ResponseEntity.ok(response);
+    }
+    
+    @GetMapping
+    public ResponseEntity<Page<DocumentResponse>> getDocuments(
+            @RequestParam(required = false) String query,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        
+        // Get logged-in user
+        Long userId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        
+        // Create pageable with sorting
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdAt"));
+        
+        // Fetch accessible documents
+        Page<Document> documents = documentRepository.findAccessibleDocuments(
+                userId,
+                user.getDesignation(),
+                VisibilityType.DESIGNATION_BASED,
+                query,
+                pageable
+        );
+        
+        // Map to response DTOs
+        Page<DocumentResponse> response = documents.map(document -> {
+            DocumentVersion latestVersion = documentVersionRepository
+                    .findTopByDocumentIdOrderByVersionNumberDesc(document.getId())
+                    .orElse(null);
+            return mapToDocumentResponse(document, latestVersion);
+        });
         
         return ResponseEntity.ok(response);
     }
@@ -135,6 +179,9 @@ public class DocumentController {
         DocumentVersion latestVersion = documentVersionRepository
                 .findTopByDocumentIdOrderByVersionNumberDesc(document.getId())
                 .orElse(null);
+        
+        // Log audit event
+        auditService.log(user, AuditAction.DOCUMENT_VIEWED, document);
         
         return ResponseEntity.ok(mapToDocumentResponse(document, latestVersion));
     }

@@ -1,5 +1,7 @@
 package com.umang.docplatform.auth.controller;
 
+import com.umang.docplatform.common.enums.AuditAction;
+import com.umang.docplatform.audit.service.AuditSevice;
 import com.umang.docplatform.auth.dto.LoginRequest;
 import com.umang.docplatform.auth.dto.LoginResponse;
 import com.umang.docplatform.config.security.JwtTokenProvider;
@@ -19,6 +21,7 @@ public class AuthController {
     
     private final UserRepository userRepository;
     private final JwtTokenProvider jwtTokenProvider;
+    private final AuditSevice auditService;
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     
     @PostMapping("/login")
@@ -39,6 +42,9 @@ public class AuthController {
                 user.getRole().name(),
                 user.getDesignation().name()
         );
+        
+        // Log audit event
+        auditService.log(user, AuditAction.LOGIN);
         
         // Return response
         LoginResponse response = new LoginResponse(
