@@ -46,9 +46,17 @@ function Dashboard() {
             Welcome, <strong>{userEmail}</strong> ({userRole})
           </p>
         </div>
-        <button onClick={handleLogout} className="logout-btn">
-          Logout
-        </button>
+        <div className="header-actions">
+          {/* Conditionally render admin menu based on user role */}
+          {userRole === "ADMIN" && (
+            <button onClick={() => navigate("/admin")} className="admin-btn">
+              Admin Panel
+            </button>
+          )}
+          <button onClick={handleLogout} className="logout-btn">
+            Logout
+          </button>
+        </div>
       </div>
 
       <div className="dashboard-content">

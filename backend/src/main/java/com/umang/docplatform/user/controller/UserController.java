@@ -11,7 +11,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/users")
@@ -21,9 +23,27 @@ public class UserController {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     
+    @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<List<UserResponse>> getAllUsers() {
+        List<User> users = userRepository.findAll();
+        
+        List<UserResponse> response = users.stream()
+                .map(user -> new UserResponse(
+                        user.getId(),
+                        user.getEmail(),
+                        user.getRole(),
+                        user.getDesignation(),
+                        user.getCreatedAt()
+                ))
+                .collect(Collectors.toList());
+        
+        return ResponseEntity.ok(response);
+    }
+    
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<UserResponse> createUser(@RequestBody CreateUserRequest request) {
+    public ResponseEntity<?> createUser(@RequestBody CreateUserRequest request) {
         // Generate temporary password
         String tempPassword = generateTempPassword();
         
@@ -39,14 +59,14 @@ public class UserController {
         
         User savedUser = userRepository.save(user);
         
-        // Return response without password
-        UserResponse response = new UserResponse(
-            savedUser.getId(),
-            savedUser.getEmail(),
-            savedUser.getRole(),
-            savedUser.getDesignation(),
-            savedUser.getCreatedAt()
-        );
+        // Return response with temporary password
+        var response = new java.util.HashMap<String, Object>();
+        response.put("id", savedUser.getId());
+        response.put("email", savedUser.getEmail());
+        response.put("role", savedUser.getRole());
+        response.put("designation", savedUser.getDesignation());
+        response.put("createdAt", savedUser.getCreatedAt());
+        response.put("temporaryPassword", tempPassword);
         
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
