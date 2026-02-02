@@ -1,4 +1,3 @@
-com\umang\docplatform\config\SecurityConfig.class
 com\umang\docplatform\DocPlatformApplication.class
 com\umang\docplatform\user\controller\UserController.class
 com\umang\docplatform\config\DataInitializer.class
