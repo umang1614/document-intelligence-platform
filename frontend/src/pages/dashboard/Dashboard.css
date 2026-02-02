@@ -23,6 +23,28 @@
   font-size: 14px;
 }
 
+.header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.admin-btn {
+  padding: 10px 20px;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.admin-btn:hover {
+  background-color: #5568d3;
+}
+
 .logout-btn {
   padding: 10px 20px;
   background-color: #dc3545;

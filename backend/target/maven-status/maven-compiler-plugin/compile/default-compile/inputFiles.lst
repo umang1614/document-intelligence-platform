@@ -1,6 +1,7 @@
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\document\repository\DocumentRepository.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\user\dto\UserResponse.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\user\entity\User.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\audit\controller\AuditController.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\document\dto\DocumentResponse.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\config\security\SecurityConfig.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\common\enums\Designation.java
@@ -25,6 +26,7 @@ C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platfo
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\auth\dto\LoginRequest.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\document\dto\CreateDocumentResponse.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\auth\controller\AuthController.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\audit\dto\AuditLogResponse.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\user\controller\UserController.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\auth\dto\LoginResponse.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\health\HealthController.java
