@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import DocumentUpload from "../document/DocumentUpload";
+import DocumentList from "../document/DocumentList";
 import "./Dashboard.css";
 
 function Dashboard() {
@@ -8,7 +9,7 @@ function Dashboard() {
   const [userRole, setUserRole] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [documentId, setDocumentId] = useState("");
-  const [showUpload, setShowUpload] = useState(true);
+  const [activeTab, setActiveTab] = useState("list"); // list, upload, or view
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -55,22 +56,30 @@ function Dashboard() {
           <div className="section">
             <div className="section-tabs">
               <button
-                className={showUpload ? "tab active" : "tab"}
-                onClick={() => setShowUpload(true)}
+                className={activeTab === "list" ? "tab active" : "tab"}
+                onClick={() => setActiveTab("list")}
+              >
+                All Documents
+              </button>
+              <button
+                className={activeTab === "upload" ? "tab active" : "tab"}
+                onClick={() => setActiveTab("upload")}
               >
                 Upload Document
               </button>
               <button
-                className={!showUpload ? "tab active" : "tab"}
-                onClick={() => setShowUpload(false)}
+                className={activeTab === "view" ? "tab active" : "tab"}
+                onClick={() => setActiveTab("view")}
               >
-                View Document
+                View by ID
               </button>
             </div>
 
-            {showUpload ? (
-              <DocumentUpload />
-            ) : (
+            {activeTab === "list" && <DocumentList />}
+
+            {activeTab === "upload" && <DocumentUpload />}
+
+            {activeTab === "view" && (
               <div className="view-document-section">
                 <h3>View Document by ID</h3>
                 <div className="view-form">
@@ -95,27 +104,48 @@ function Dashboard() {
         )}
 
         {!canUpload && (
-          <div className="section viewer-section">
-            <h3>View Document</h3>
-            <p className="info-text">
-              Enter a document ID to view documents you have access to.
-            </p>
-            <div className="view-form">
-              <input
-                type="text"
-                value={documentId}
-                onChange={(e) => setDocumentId(e.target.value)}
-                placeholder="Enter document ID"
-                className="document-id-input"
-              />
+          <div className="section">
+            <div className="section-tabs">
               <button
-                onClick={handleViewDocument}
-                className="view-btn"
-                disabled={!documentId.trim()}
+                className={activeTab === "list" ? "tab active" : "tab"}
+                onClick={() => setActiveTab("list")}
               >
-                View Document
+                All Documents
+              </button>
+              <button
+                className={activeTab === "view" ? "tab active" : "tab"}
+                onClick={() => setActiveTab("view")}
+              >
+                View by ID
               </button>
             </div>
+
+            {activeTab === "list" && <DocumentList />}
+
+            {activeTab === "view" && (
+              <div className="viewer-section">
+                <h3>View Document</h3>
+                <p className="info-text">
+                  Enter a document ID to view documents you have access to.
+                </p>
+                <div className="view-form">
+                  <input
+                    type="text"
+                    value={documentId}
+                    onChange={(e) => setDocumentId(e.target.value)}
+                    placeholder="Enter document ID"
+                    className="document-id-input"
+                  />
+                  <button
+                    onClick={handleViewDocument}
+                    className="view-btn"
+                    disabled={!documentId.trim()}
+                  >
+                    View Document
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>

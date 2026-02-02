@@ -6,6 +6,7 @@ C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platfo
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\common\enums\Designation.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\common\enums\VisibilityType.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\document\repository\DocumentVersionRepository.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\audit\entity\AuditLog.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\document\entity\DocumentAllowedDesignation.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\test\TestController.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\common\enums\Role.java
@@ -18,6 +19,8 @@ C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platfo
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\document\dto\CreateDocumentRequest.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\document\repository\DocumentAllowedDesignationRepository.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\document\entity\Document.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\audit\service\AuditSevice.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\common\enums\AuditAction.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\config\security\JwtTokenProvider.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\auth\dto\LoginRequest.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\document\dto\CreateDocumentResponse.java
@@ -25,5 +28,6 @@ C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platfo
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\user\controller\UserController.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\auth\dto\LoginResponse.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\health\HealthController.java
+C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\audit\repository\AuditLogRepository.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\document\entity\DocumentVersion.java
 C:\Users\Umang.Bhatia\Documents\Personal\New folder\document-intelligence-platform\backend\src\main\java\com\umang\docplatform\config\DataInitializer.java
