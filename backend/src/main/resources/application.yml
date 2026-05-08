@@ -8,9 +8,9 @@ spring:
       max-file-size: 10MB
       max-request-size: 10MB
   datasource:
-    url: jdbc:mysql://localhost:3306/doc_platform?useSSL=false&serverTimezone=UTC
-    username: root
-    password: root123
+    url: ${DB_URL:jdbc:mysql://localhost:3306/doc_platform?useSSL=false&serverTimezone=UTC}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -23,8 +23,8 @@ spring:
         format_sql: true
 
   jwt:
-    secret: your-secret-key-change-this-in-production-minimum-256-bits
+    secret: ${JWT_SECRET:your-secret-key-change-this-in-production-minimum-256-bits}
     expiration: 86400000
 
 file:
-  upload-dir: C:/Users/Umang.Bhatia/Documents/Personal/New folder/document-intelligence-platform/backend/uploads
+  upload-dir: ${FILE_UPLOAD_DIR:./uploads}
