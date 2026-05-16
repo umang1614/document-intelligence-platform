@@ -20,8 +20,6 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Frontend build artifacts
-frontend/dist/
-frontend/dist-ssr/
 
 # Backend build artifacts
 backend/target/
